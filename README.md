@@ -1,11 +1,12 @@
-# Webpack 4 Boilerplate
+# Webpack 4
 
-A complete webpack template featuring SASS, hot reload and build optimizations.
+A Webpack template featuring SASS, hot reload and build optimizations.
 
-### Usage
+### To use it
 
 - Install [Node.js](https://nodejs.org/en/)
 - Open the terminal and go to folder
-- Install dependencies using `npm install` (or `yarn` if you use yarn) (You may need to start with `sudo` on Mac)
-- Start developing with `npm run dev` (or `yarn dev` if you use yarn)
-- Build with `npm run build` (or `yarn build` if you use yarn). Destination files are in `dist/`
+- Install dependencies using `npm install`(You may need to start with `sudo` on Mac)
+- Start developing with `npm run dev`
+- Build with `npm run build`. Destination files are in `dist/`
+- develop in `src`
