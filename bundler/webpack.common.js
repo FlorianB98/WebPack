@@ -1,31 +1,32 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
+    devtool: 'source-map',
+    plugins:
+    [
+        new CopyWebpackPlugin([ { from: 'static' } ]),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, '../src/index.html')
+        })
+    ],
     entry: './src/index.js',
     output:
     {
         filename: 'bundle.[hash].js',
         path: path.resolve(__dirname, '../dist')
     },
-    plugins:
-    [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../src/index.html'),
-            minify: true
-        })
-    ],
-    devtool: 'source-map',
     module:
     {
         rules:
         [
             {
-                test: /\.css$/,
+                test: /\.js$/,
+                exclude: /node_modules/,
                 use:
                 [
-                    'style-loader',
-                    'css-loader'
+                    'babel-loader'
                 ]
             },
             {
@@ -42,7 +43,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(ttf|woff|woff2|eot|otf)$/,
                 use:
                 [
                     {
@@ -55,14 +56,10 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(html)$/,
-                use: ['html-loader']
-            },
-            {
-                test: /\.js$/,
+                test: /\.html$/,
                 use:
                 [
-                    'babel-loader'
+                    'html-loader'
                 ]
             }
         ]

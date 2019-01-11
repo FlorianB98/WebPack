@@ -1,4 +1,4 @@
-import './css/style.css'
+import './css/style.styl'
 
 //import image from './images/image.jpg'
 
